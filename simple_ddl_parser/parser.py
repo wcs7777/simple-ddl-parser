@@ -335,6 +335,7 @@ class Parser:
         file_path: Optional[str] = None,
         output_mode: str = "sql",
         group_by_type: bool = False,
+        normalize_names: bool = False,
         json_dump=False,
     ) -> List[Dict]:
         """
@@ -350,6 +351,7 @@ class Parser:
             and each dict will contain list of parsed entities. Without it output is a List with Dicts where each
             Dict == one entity from ddl - one table or sequence or type.
         """
+        self.normalize_names = normalize_names
         self.tables = self.parse_data()
         self.tables = result_format(self.tables, output_mode, group_by_type)
         if dump:
