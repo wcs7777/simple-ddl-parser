@@ -220,7 +220,7 @@ class DDLParser(
         if self.normalize_names:
             for num, symbol in enumerate(delimeters_to_start):
                 if p[0].startswith(symbol) and p[0].endswith(delimeters_to_end[num]):
-                    p[0] = p[0][1:-1]
+                    p[0] = p[0][1:-1].lower()
 
     def p_id_or_string(self, p):
         """id_or_string : id
