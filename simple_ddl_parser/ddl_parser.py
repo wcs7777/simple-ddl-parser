@@ -153,7 +153,7 @@ class DDLParser(
         return False
 
     def t_AUTOINCREMENT(self, t: LexToken):
-        r"(AUTO_INCREMENT|AUTOINCREMENT)(?i)\b"
+        r"(AUTO_INCREMENT|AUTOINCREMENT|auto_increment|autoincrement)\b"
         t.type = "AUTOINCREMENT"
         return self.set_last_token(t)
 
